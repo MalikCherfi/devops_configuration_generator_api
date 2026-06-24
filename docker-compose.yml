@@ -1,0 +1,8 @@
+services:
+  api:
+    build: .
+    container_name: devops-configuration-generator-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ${HOME}:/workspace
