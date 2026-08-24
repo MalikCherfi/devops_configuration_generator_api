@@ -1,10 +1,10 @@
 # Devops Configuration Generator — API
  
-## 🚀 Lancer le projet
+## 🚀 Lancer l'application complète
 
 ### Avec Docker
  
-L'application nécessite l'API ([repo-api](https://github.com/malikcherfi/devops_configuration_generator_api)). 
+L'application nécessite l'APP ([repo-app](https://github.com/malikcherfi/devops_configuration_generator_app)). 
 
 Pour tout démarrer d'un coup, crée un fichier `docker-compose.yml` avec le contenu suivant puis lancer la commande `docker compose up -d` :
 
@@ -14,10 +14,12 @@ services:
     image: ghcr.io/malikcherfi/devops_configuration_generator_api:latest
     ports:
       - "8000:8000"
+    volumes:
+      - ${HOME}:/${HOME}
     restart: always
 
   app:
-    image: ghcr.io/malikcherfi/repo-app:latest
+    image: ghcr.io/malikcherfi/devops_configuration_generator_app:latest
     ports:
       - "3000:3000"
     depends_on:
